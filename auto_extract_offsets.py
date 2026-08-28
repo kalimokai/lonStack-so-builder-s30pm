@@ -95,6 +95,12 @@ RUST_ASHMEM_METHOD_PATTERNS = {
 # 6.12 在 open 之前移除/移动了字段，因此与 6.6 GKI 相比，open/release/show_fdinfo
 # 下移了 8 字节。这里仅列出我们验证/匹配的字段。
 FOPS_LAYOUTS = {
+    '6.1': {
+        'owner': 0x00, 'llseek': 0x08, 'read': 0x10, 'write': 0x18,
+        'read_iter': 0x20, 'write_iter': 0x28,
+        'ioctl': 0x48, 'compat_ioctl': 0x50, 'mmap': 0x58,
+        'open': 0x68, 'release': 0x78, 'show_fdinfo': 0xd8,
+    },
     '6.6': {
         'owner': 0x00, 'llseek': 0x08, 'read': 0x10, 'write': 0x18,
         'read_iter': 0x20, 'write_iter': 0x28,
@@ -112,6 +118,21 @@ FOPS_LAYOUTS = {
 # 用于生成 target.h 的标准 fops 字段偏移量，按布局版本分组。
 # 这些是写入 target.h 末尾的 FOPS_*_OFF 宏定义。
 FOPS_FIELD_DEFINES = {
+    '6.1': [
+        ("FOPS_OWNER_OFF", "0x00"),
+        ("FOPS_LLSEEK_OFF", "0x08"),
+        ("FOPS_READ_OFF", "0x10"),
+        ("FOPS_WRITE_OFF", "0x18"),
+        ("FOPS_READ_ITER_OFF", "0x20"),
+        ("FOPS_WRITE_ITER_OFF", "0x28"),
+        ("FOPS_IOCTL_OFF", "0x48"),
+        ("FOPS_COMPAT_IOCTL_OFF", "0x50"),
+        ("FOPS_MMAP_OFF", "0x58"),
+        ("FOPS_OPEN_OFF", "0x68"),
+        ("FOPS_RELEASE_OFF", "0x78"),
+        ("FOPS_SPLICE_READ_OFF", "0xb8"),
+        ("FOPS_SHOW_FDINFO_OFF", "0xd8"),
+    ],
     '6.6': [
         ("FOPS_OWNER_OFF", "0x00"),
         ("FOPS_LLSEEK_OFF", "0x08"),
@@ -507,7 +528,7 @@ class KernelImage:
                 return layout_name, fops_off, True
 
         # 没有完全匹配的布局；默认使用 6.6
-        return '6.6', fops_off, False
+        return '6.1', fops_off, False
 
     def _find_rust_ashmem_fops_table(self, methods):
         """通过扫描内核镜像中包含 ashmem 函数指针的结构体，
