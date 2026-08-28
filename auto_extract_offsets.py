@@ -932,7 +932,7 @@ def get_text_offset(kernel_img):
 
 def generate_targeth(target_name, build_info, kimage_base, phys_offset,
                      text_offset, offsets, verified, device_override=None,
-                     fops_layout='6.6', ashmem_impl='c'):
+                     fops_layout='6.1', ashmem_impl='c'):
     """生成 target.h 文件内容字符串。"""
 
     kernel_phys_load = phys_offset + text_offset
