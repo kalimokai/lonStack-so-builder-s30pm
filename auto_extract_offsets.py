@@ -527,7 +527,7 @@ class KernelImage:
             if all_ok:
                 return layout_name, fops_off, True
 
-        # 没有完全匹配的布局；默认使用 6.6
+        # 没有完全匹配的布局；默认使用 6.1
         return '6.1', fops_off, False
 
     def _find_rust_ashmem_fops_table(self, methods):
