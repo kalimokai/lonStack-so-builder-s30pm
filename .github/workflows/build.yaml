@@ -31,17 +31,17 @@ jobs:
     #     wget -O boot.img "$DOWNLOAD_URL"
     #     ls -lh boot.img
     
-    - name: 初始化Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.11'
-        cache: 'pip'
-        cache-dependency-path: 'requirements.txt'
+    # - name: 初始化Python
+    #   uses: actions/setup-python@v5
+    #   with:
+    #     python-version: '3.11'
+    #     cache: 'pip'
+    #     cache-dependency-path: 'requirements.txt'
     
-    - name: 安装Python依赖库
-      run: |
-        pip3 install --upgrade pip
-        pip3 install -r requirements.txt
+    # - name: 安装Python依赖库
+    #   run: |
+    #     pip3 install --upgrade pip
+    #     pip3 install -r requirements.txt
     
     # - name: 生成target.h
     #   run: |
