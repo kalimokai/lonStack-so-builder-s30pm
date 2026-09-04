@@ -1,6 +1,7 @@
 name: 从boot.img构建preload.so
 
 on:
+  push:
   workflow_dispatch:
 
 jobs:
