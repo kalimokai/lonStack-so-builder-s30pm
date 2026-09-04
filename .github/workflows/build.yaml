@@ -42,19 +42,19 @@ jobs:
         pip3 install --upgrade pip
         pip3 install -r requirements.txt
     
-    - name: 生成target.h
-      run: |
-        python3 auto_extract_offsets.py boot.img
+    # - name: 生成target.h
+    #   run: |
+    #     python3 auto_extract_offsets.py boot.img
     
-    - name: 移动target.h
-      run: |
-        TARGET_FILE=$(find . -name "target.h" -type f | head -1)
-        if [ -z "$TARGET_FILE" ]; then
-          echo "Error: target.h not found"
-          exit 1
-        fi
-        echo "Found target.h at: $TARGET_FILE"
-        mv "$TARGET_FILE" src/target.h
+    # - name: 移动target.h
+    #   run: |
+    #     TARGET_FILE=$(find . -name "target.h" -type f | head -1)
+    #     if [ -z "$TARGET_FILE" ]; then
+    #       echo "Error: target.h not found"
+    #       exit 1
+    #     fi
+    #     echo "Found target.h at: $TARGET_FILE"
+    #     mv "$TARGET_FILE" src/target.h
     
     - name: 设置Android NDK
       uses: nttld/setup-ndk@v1
