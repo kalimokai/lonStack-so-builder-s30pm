@@ -16,19 +16,19 @@ jobs:
     - name: 拉取源码
       uses: actions/checkout@v4
       
-    - name: 从Releases下载 boot.img
-      run: |
-        DOWNLOAD_URL=$(curl -s https://api.github.com/repos/${{ github.repository }}/releases/tags/upload | \
-                       grep -o '"browser_download_url": "[^"]*boot\.img"' | \
-                       head -1 | \
-                       sed 's/"browser_download_url": "//' | \
-                       sed 's/"//')
-        if [ -z "$DOWNLOAD_URL" ]; then
-          echo "错误：在Releases Tag “upload”中找不到 boot.img"
-          exit 1
-        fi
-        wget -O boot.img "$DOWNLOAD_URL"
-        ls -lh boot.img
+    # - name: 从Releases下载 boot.img
+    #   run: |
+    #     DOWNLOAD_URL=$(curl -s https://api.github.com/repos/${{ github.repository }}/releases/tags/upload | \
+    #                    grep -o '"browser_download_url": "[^"]*boot\.img"' | \
+    #                    head -1 | \
+    #                    sed 's/"browser_download_url": "//' | \
+    #                    sed 's/"//')
+    #     if [ -z "$DOWNLOAD_URL" ]; then
+    #       echo "错误：在Releases Tag “upload”中找不到 boot.img"
+    #       exit 1
+    #     fi
+    #     wget -O boot.img "$DOWNLOAD_URL"
+    #     ls -lh boot.img
     
     - name: 初始化Python
       uses: actions/setup-python@v5
