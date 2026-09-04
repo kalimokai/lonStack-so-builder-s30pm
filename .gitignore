@@ -1,6 +1,7 @@
 extracted_target/
 S30Pm/
 bin/
+.vscode/
 boot.img
 kallsyms.txt
 payload-bin-go.bat
