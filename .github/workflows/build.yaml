@@ -65,10 +65,17 @@ jobs:
       run: |
         make preload API=35 VERBOSE=1
     
-    - name: 上传附件
+    - name: 上传preload-so
       uses: actions/upload-artifact@v7
       with:
         name: preload-so
         path: build/bin/preload.so
+        retention-days: 1
+        archive: false
+    - name: 上传 target-h
+      uses: actions/upload-artifact@v7
+      with:
+        name: target-h
+        path: src/target.h
         retention-days: 1
         archive: false
