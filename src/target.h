@@ -154,18 +154,18 @@
 #define PIPE_BUFFER_SLOTS 32
 #define PIPE_BUF_FLAG_CAN_MERGE 0x10
 
-#define FOPS_OWNER_OFF          0x00
-#define FOPS_LLSEEK_OFF         0x08
-#define FOPS_READ_OFF           0x10
-#define FOPS_WRITE_OFF          0x18
-#define FOPS_READ_ITER_OFF      0x20
-#define FOPS_WRITE_ITER_OFF     0x28
-#define FOPS_IOCTL_OFF          0x50   /* 原 0x48，改为此值 */
-#define FOPS_COMPAT_IOCTL_OFF   0x58   /* 原 0x50，改为此值 */
-#define FOPS_MMAP_OFF           0x60   /* 原 0x58，改为此值 */
-#define FOPS_OPEN_OFF           0x68   /* 保持不变 */
-#define FOPS_RELEASE_OFF        0x70   /* 原 0x78，改为此值 */
-#define FOPS_SPLICE_READ_OFF    0xB8   /* 保持不变 */
-#define FOPS_SHOW_FDINFO_OFF    0xD8   /* 保持不变（验证后） */
+#define FOPS_OWNER_OFF 0x00
+#define FOPS_LLSEEK_OFF 0x08
+#define FOPS_READ_OFF 0x10
+#define FOPS_WRITE_OFF 0x18
+#define FOPS_READ_ITER_OFF 0x20
+#define FOPS_WRITE_ITER_OFF 0x28
+#define FOPS_IOCTL_OFF 0x48
+#define FOPS_COMPAT_IOCTL_OFF 0x50
+#define FOPS_MMAP_OFF 0x58
+#define FOPS_OPEN_OFF 0x68
+#define FOPS_RELEASE_OFF 0x78
+#define FOPS_SPLICE_READ_OFF 0xb8
+#define FOPS_SHOW_FDINFO_OFF 0xd8
 
 #endif

@@ -2,6 +2,9 @@ extracted_target/
 S30Pm/
 bin/
 .vscode/
+ndk-r29/
+build/
 boot.img
 kallsyms.txt
 payload-bin-go.bat
+build.bat

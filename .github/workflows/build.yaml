@@ -73,10 +73,10 @@ jobs:
         path: build/bin/preload.so
         retention-days: 1
         archive: false
-    - name: 上传 target-h
-      uses: actions/upload-artifact@v7
-      with:
-        name: target-h
-        path: src/target.h
-        retention-days: 1
-        archive: false
+    # - name: 上传 target-h
+    #   uses: actions/upload-artifact@v7
+    #   with:
+    #     name: target-h
+    #     path: src/target.h
+    #     retention-days: 1
+    #     archive: false
